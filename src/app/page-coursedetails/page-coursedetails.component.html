@@ -1,0 +1,54 @@
+<div class='bg-light text-dark' 
+style='background:url(assets/img/banner_home.jpg);background-size:cover;position:absolute;width:100%;display:inline-block;height:600px;color:#000;width:100%;vertical-align:bottom'>
+
+    <span style='vertical-align:bottom'>This is a banner</span>
+</div>
+<div style='display:block;height:200px'>
+</div>
+
+
+
+  <div class=' col-md-6 offset-md-3'>
+<div class="card x-card" style='opacity:0.95'>
+    <div><img [src]="this._course && this._course.img ? this._course.img : ''" style='width:100%'/></div>
+    <div class="x-card-title" style='background:#fff;color:#333;;border-bottom:1px solid #9F3E35'>
+
+        <h5 class="">
+            <img src='assets/img/sb.jpg' style='border-radius:50%'/>
+            <div style='display:inline-block;padding-top:10px'>{{this._course.title}}
+            <small style='color:#888'>{{this._course.folder}} - {{this._course.category}}</small>
+            </div>
+        </h5>
+    </div>
+    <div class='x-card-body'>
+
+      <p class="card-text">{{this._course.description}}. </p>
+
+      <p>
+        {{this._course.outcomes}}
+      </p>
+
+    </div>
+    <div [attr.courseid]="_course._id" class='x-card-footer' style='background:#eee;border-top:1px solid #9F3E35'>
+      <a *ngIf="!_course.alreadyAdded" class="btn btn-primary text-white" (click)="this.addToCart($event)">Add to Cart</a>
+      <a *ngIf="_course.alreadyAdded" class="btn btn-danger text-white" (click)="this.removeFromCart($event)">Remove from Cart</a>
+
+      <a class="btn btn-primary text-white" [routerLink]="['/search']">Continue Shopping</a>
+      <a class="btn btn-success text-white" [routerLink]="['/cart']">Checkout</a>
+
+    </div>
+
+
+    <div class="x-card-footer text-muted text-right" style='background:#eee'>
+
+        <span class="badge badge-success">R{{this._course.price}}</span>
+        <span class="badge badge-primary">{{this._course.folder}}</span>
+        <span class="badge badge-primary">Category - {{this._course.category}}</span>
+
+        <span class="badge badge-primary">{{this._course.length}} Required</span>
+        <span class="badge badge-primary">Includes Zulu and Afrikaans Translation</span>
+
+    </div>
+
+  </div>
+  </div>

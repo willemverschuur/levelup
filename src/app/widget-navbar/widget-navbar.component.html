@@ -1,0 +1,46 @@
+<nav 
+  class="navbar navbar-expand-lg navbar-light bg-light fixed-top justify-content-between"
+  style='background:#fff;box-shadow:0px 2px 5px 2px rgba(0, 0, 0, 0.10);' >
+  <ul class="navbar-nav mr-auto">
+    <li  class="nav-item"> 
+        <a class="navbar-brand" href="#">
+
+        <img src='assets/img/sb.jpg' style='height:40px;border-radius:20px'/>
+        </a>
+    </li>
+  </ul>
+
+  
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+  
+    <div id='navbarNavDropdown' class="collapse navbar-collapse">
+
+        <ul class="navbar-nav ml-auto">
+            <li *ngIf="!this._state._authToken" class="nav-item">
+              <a class="nav-link" (mousedown)="this.redirect('/home')">Home</a>
+            </li>
+            <li *ngIf="this._state._authToken" class="nav-item">
+                <a class="nav-link" (mousedown)="this.redirect('/dashboard')">Dashboard</a>
+            </li>
+            <!--<li *ngIf="this._state._opencourseid" class="nav-item">
+                <a class="nav-link" [routerLink]="['/course']">Course</a>
+            </li>-->
+            <li class="nav-item">
+              <a class="nav-link" (mousedown)="this.redirect('/search')">Search</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" (mousedown)="this.redirect('/cart')">Cart <span class="badge badge-danger">{{this._state._cartcount}}</span></a>
+            </li>      
+            <li *ngIf="!this._state._authToken" class="nav-item">
+              <a class="nav-link" (mousedown)="this.redirect('/login')">Login/Register</a>
+            </li>
+            <li *ngIf="this._state._authToken" class="nav-item">
+                <a class="nav-link" (mousedown)="this.redirect('/profile')">Profile</a>
+            </li>
+
+          </ul>
+    </div>
+  </nav>
